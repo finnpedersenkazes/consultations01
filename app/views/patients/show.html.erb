@@ -1,0 +1,29 @@
+<div class="container">
+      <h1 class="text-center">Patient</h1>
+      <p><strong>Name</strong></p>
+      <p><%= @patient.name %></p>
+</div>
+<p class="text-center">
+  <%= link_to "Edit", edit_patient_path(@patient), class: "btn btn-warning " %>
+  <%= link_to "Delete", patient_path(@patient), method: :delete, class: "btn btn-danger" %>
+  <%= link_to "Patients", patients_path, class: "btn btn-primary"  %>
+</p>
+<h2 class="text-center">Consultation</h2>
+<%= link_to 'New Consultation', new_doctor_patient_relation_path(patient_id: @patient.id) %>
+<table class='table table-bodered>
+  <thead>
+    <tr>
+      <th>doctor</th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% doctor_patient_relations.each do |doctor_patient_relation| %>
+      <tr>
+        <td><%= link_to doctor_patient_relation.doctor.location, doctor_patient_relation.doctor %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

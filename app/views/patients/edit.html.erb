@@ -1,0 +1,10 @@
+<div class="container">
+      <h1 class="text-center">Update Patient</h1>
+      <%= simple_form_for @patient do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :name, placeholder:"Name", label: "Name" %>
+        <%= f.button :submit, "Update Patient", class: "btn btn-primary" %>
+        <%= link_to "Cancel", :back, class: "btn btn-warning" %>
+        <%= link_to "Patients", patients_path, class: "btn btn-primary"  %>
+      <% end %>
+</div>
